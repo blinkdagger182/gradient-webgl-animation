@@ -18,6 +18,7 @@
       position: absolute;
       width: 100%;
       height: 35%;
+      transform-origin: 50% 0%;
       transform: rotate(-26deg) scale(2) translateY(-30%);
       --gradient-color-1: #ef008f; 
       --gradient-color-2: #6ec3f4; 
@@ -38,7 +39,7 @@
     var gradient = new Gradient();
     gradient.initGradient("#canvas");
 
-    // Animate the canvas position
+    // Animate the canvas position and rotation around top
     const canvas = document.getElementById('canvas');
     let time = 0;
     
@@ -48,7 +49,9 @@
       // Calculate smooth movement using sine/cosine
       const moveX = Math.sin(time * 0.8) * 15;
       const moveY = Math.cos(time * 0.6) * 20;
-      const rotation = -26 + Math.sin(time * 0.4) * 5;
+      
+      // Rotate around the top of the screen (swinging motion)
+      const rotation = Math.sin(time * 0.5) * 60 - 26; // Swing ±60 degrees from -26
       
       canvas.style.transform = `rotate(${rotation}deg) scale(2) translateY(-30%) translateX(${moveX}%) translateY(${moveY}%)`;
       
