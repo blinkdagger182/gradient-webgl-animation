@@ -24,14 +24,8 @@
       --gradient-color-3: #7038ff;  
       --gradient-color-4: #ffba27;
       --gradient-speed: 0.000016;
-      mask-image: 
-        linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%),
-        linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
-      -webkit-mask-image: 
-        linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%),
-        linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
-      mask-composite: intersect;
-      -webkit-mask-composite: source-in;
+      filter: blur(20px);
+      opacity: 0.8;
     }
   </style>
 </head>
@@ -44,7 +38,7 @@
     var gradient = new Gradient();
     gradient.initGradient("#canvas");
 
-    // Animate the canvas position to move the wave origin
+    // Animate the canvas position
     const canvas = document.getElementById('canvas');
     let time = 0;
     
